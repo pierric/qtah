@@ -73,6 +73,8 @@ executable qtah-generator
     , Graphics.UI.Qtah.Generator.Interface.Core.QStringList
     , Graphics.UI.Qtah.Generator.Interface.Core.QTimerEvent
     , Graphics.UI.Qtah.Generator.Interface.Core.QVector
+    , Graphics.UI.Qtah.Generator.Interface.Core.QVariant
+    , Graphics.UI.Qtah.Generator.Interface.Core.QUrl
     , Graphics.UI.Qtah.Generator.Interface.Core.Types
     , Graphics.UI.Qtah.Generator.Interface.EventListener
     , Graphics.UI.Qtah.Generator.Interface.Gui
@@ -143,6 +145,12 @@ executable qtah-generator
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QTextEdit
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QVBoxLayout
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QWidget
+    , Graphics.UI.Qtah.Generator.Interface.Qml
+    , Graphics.UI.Qtah.Generator.Interface.Qml.QJSValue
+    , Graphics.UI.Qtah.Generator.Interface.Qml.QJSEngine
+    , Graphics.UI.Qtah.Generator.Interface.Qml.QQmlEngine
+    , Graphics.UI.Qtah.Generator.Interface.Qml.QQmlContext
+    , Graphics.UI.Qtah.Generator.Interface.Qml.QQmlApplicationEngine
     , Graphics.UI.Qtah.Generator.Module
     , Graphics.UI.Qtah.Generator.Types
   ghc-options: -W -fwarn-incomplete-patterns -fwarn-unused-do-bind

@@ -36,6 +36,8 @@ import qualified Graphics.UI.Qtah.Generator.Interface.Core.QString as QString
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.QStringList as QStringList
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.QTimerEvent as QTimerEvent
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.QVector as QVector
+import qualified Graphics.UI.Qtah.Generator.Interface.Core.QVariant as QVariant 
+import qualified Graphics.UI.Qtah.Generator.Interface.Core.QUrl as QUrl
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.Types as Types
 import Graphics.UI.Qtah.Generator.Types
 
@@ -61,6 +63,8 @@ modules =
     , QString.aModule
     , QStringList.aModule
     , QTimerEvent.aModule
+    , QVariant.aModule
+    , QUrl.aModule
     , Types.aModule
     ]
   , QList.allModules

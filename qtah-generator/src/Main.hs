@@ -40,6 +40,7 @@ import qualified Graphics.UI.Qtah.Generator.Interface.EventListener as EventList
 import qualified Graphics.UI.Qtah.Generator.Interface.Gui as Gui
 import qualified Graphics.UI.Qtah.Generator.Interface.Listener as Listener
 import qualified Graphics.UI.Qtah.Generator.Interface.Widgets as Widgets
+import qualified Graphics.UI.Qtah.Generator.Interface.Qml as Qml
 import System.Environment (getArgs)
 import System.Exit (exitFailure)
 import System.FilePath (
@@ -64,6 +65,7 @@ modules =
   , Core.modules
   , Gui.modules
   , Widgets.modules
+  , Qml.modules
   ]
 
 interfaceResult :: Either String Interface
