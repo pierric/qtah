@@ -47,6 +47,7 @@
 /qtah/src/Graphics/UI/Qtah/Gui/Q*
 /qtah/src/Graphics/UI/Qtah/Internal/EventListener.hs
 /qtah/src/Graphics/UI/Qtah/Widgets/Q*
+/qtah/src/Graphics/UI/Qtah/Qml/Q*
 
 /qtah-qt?/dist
 /qtah-qt?/src/Graphics/UI/Qtah/Core/Q*

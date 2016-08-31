@@ -7,6 +7,7 @@ import Foreign.Hoppy.Generator.Types
 import Foreign.Hoppy.Generator.Spec
 import Foreign.Hoppy.Generator.Spec.ClassFeature
 import Graphics.UI.Qtah.Generator.Types
+import Graphics.UI.Qtah.Generator.Interface.Core.QObject (c_QObject)
 import Graphics.UI.Qtah.Generator.Interface.Core.QString (c_QString)
 import Graphics.UI.Qtah.Generator.Interface.Core.QVariant(c_QVariant)
 
@@ -26,7 +27,11 @@ c_QJSValue =
   , mkCtor "newFromUInt" [uintT]
   , mkCtor "newFromDouble" [doubleT]
   , mkCtor "newFromString" [constT $ refT $ objT c_QString] ] $
-  [ mkConstMethod "isArray"      [] boolT
+  [ mkMethod "deleteProperty" [constT $ refT $ objT c_QString] boolT
+  , mkConstMethod "equals" [constT $ refT $ objT c_QJSValue] boolT
+  , mkConstMethod "hasOwnProperty" [constT $ refT $ objT c_QString] boolT
+  , mkConstMethod "hasProperty"    [constT $ refT $ objT c_QString] boolT
+  , mkConstMethod "isArray"      [] boolT
   , mkConstMethod "isBool"       [] boolT
   , mkConstMethod "isCallable"   [] boolT
   , mkConstMethod "isDate"       [] boolT
@@ -40,8 +45,18 @@ c_QJSValue =
   , mkConstMethod "isUndefined"  [] boolT
   , mkConstMethod "isVariant"    [] boolT
   , mkConstMethod "property" [constT $ refT $ objT c_QString]  (objT c_QJSValue)
+  , mkConstMethod' "property" "propertyWithArrayIndex" [uintT] (objT c_QJSValue)
+  , mkConstMethod "prototype"    [] (objT c_QJSValue)
+  , mkMethod "setProperty" [constT $ refT $ objT c_QString, constT $ refT $ objT c_QJSValue] voidT
+  , mkMethod'"setProperty" "setPropertyWithArrayIndex" [uintT, constT $ refT $ objT c_QJSValue] voidT
+  , mkMethod "setPrototype" [constT $ refT $ objT c_QJSValue] voidT
+  , mkConstMethod "strictlyEquals" [constT $ refT $ objT c_QJSValue] boolT
+
   , mkConstMethod "toBool"       [] boolT
   , mkConstMethod "toInt"        [] intT
+  , mkConstMethod "toNumber"     [] doubleT
+  , mkConstMethod "toQObject"    [] (ptrT $ objT c_QObject)
+  , mkConstMethod "toString"     [] (objT c_QString)
   , mkConstMethod "toUInt"       [] uintT
   , mkConstMethod "toVariant"    [] (objT c_QVariant)
   ]
