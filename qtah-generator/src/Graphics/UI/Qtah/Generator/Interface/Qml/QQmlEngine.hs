@@ -20,8 +20,8 @@ c_QQmlEngine =
   addReqIncludes [includeStd "QQmlEngine"] $
   makeClass (ident "QQmlEngine") Nothing [c_QJSEngine]
   [ mkCtor "new" [] ] $
-  [ mkMethod "addImportPath" [constT $ refT $ objT c_QString] voidT
-  , mkMethod "addPluginPath" [constT $ refT $ objT c_QString] voidT
+  [ mkMethod "addImportPath" [refT $ constT $ objT c_QString] voidT
+  , mkMethod "addPluginPath" [refT $ constT $ objT c_QString] voidT
   , mkConstMethod "rootContext" [] $ ptrT (objT c_QQmlContext)
   , mkConstMethod "baseUrl" [] $ objT c_QUrl
   , mkMethod "setBaseUrl" [constT (objT c_QUrl)] voidT

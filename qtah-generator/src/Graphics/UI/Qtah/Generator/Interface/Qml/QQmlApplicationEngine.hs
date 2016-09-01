@@ -21,6 +21,6 @@ c_QQmlApplicationEngine =
   makeClass (ident "QQmlApplicationEngine") Nothing [c_QQmlEngine]
   [ mkCtor "new" [] ] $
   [ mkMethod "rootObjects" [] $ objT c_QListQObject
-  , mkMethod "load" [constT $ refT $ objT c_QString] voidT
-  , mkMethod' "load" "loadWithQUrl" [constT $ refT $ objT c_QUrl] voidT
+  , mkMethod "load" [refT $ constT $ objT c_QString] voidT
+  , mkMethod' "load" "loadWithQUrl" [refT $ constT $ objT c_QUrl] voidT
   ]

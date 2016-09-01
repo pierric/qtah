@@ -21,6 +21,6 @@ c_QUrl =
   classSetConversionToGc $
   makeClass (ident "QUrl") Nothing []
   [ mkCtor "new" []
-  , mkCtor "newFromString" [constT $ refT $ objT c_QString]
+  , mkCtor "newFromString" [refT $ constT $ objT c_QString]
   ] $
   [ ] 

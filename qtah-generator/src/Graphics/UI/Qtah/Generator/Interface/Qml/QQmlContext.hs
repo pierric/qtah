@@ -25,14 +25,14 @@ c_QQmlContext =
   ] $
   [ mkConstMethod "baseUrl" [] $ objT c_QUrl
   , mkConstMethod "contextObject" [] $ ptrT (objT c_QObject)
-  , mkConstMethod "contextProperty" [constT $ refT $ objT c_QString] $ objT c_QVariant
+  , mkConstMethod "contextProperty" [refT $ constT $ objT c_QString] $ objT c_QVariant
   , mkConstMethod "engine" [] $ ptrT (objT c_QQmlEngine)
   , mkConstMethod "isValid" [] $ boolT
   , mkConstMethod "nameForObject" [ptrT $ objT c_QObject] $ objT c_QString
   , mkConstMethod "parentContext" [] $ ptrT (objT c_QQmlContext)
-  , mkMethod "resolvedUrl" [constT $ refT $ objT c_QUrl] $ objT c_QUrl
-  , mkMethod "setBaseUrl"  [constT $ refT $ objT c_QUrl] voidT
+  , mkMethod "resolvedUrl" [refT $ constT $ objT c_QUrl] $ objT c_QUrl
+  , mkMethod "setBaseUrl"  [refT $ constT $ objT c_QUrl] voidT
   , mkMethod "setContextObject" [ptrT $ objT c_QObject] voidT
-  , mkMethod "setContextProperty" [constT $ refT $ objT c_QString, ptrT $ objT c_QObject] voidT
-  , mkMethod' "setContextProperty" "setContextPropertyWithQVariant" [constT $ refT $ objT c_QString, constT $ refT $ objT c_QVariant] voidT
+  , mkMethod "setContextProperty" [refT $ constT $ objT c_QString, ptrT $ objT c_QObject] voidT
+  , mkMethod' "setContextProperty" "setContextPropertyWithQVariant" [refT $ constT $ objT c_QString, refT $ constT $ objT c_QVariant] voidT
   ]

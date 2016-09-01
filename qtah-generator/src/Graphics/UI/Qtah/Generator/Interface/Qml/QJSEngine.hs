@@ -23,7 +23,7 @@ c_QJSEngine =
   [ mkCtor "new" [] ] $
   [ 
     mkMethod "collectGarbage" [] $ voidT
-  , mkMethod "evaluate" [constT $ refT $ objT c_QString] $ objT c_QJSValue
+  , mkMethod "evaluate" [refT $ constT $ objT c_QString] $ objT c_QJSValue
   , mkConstMethod "globalObject" [] $ objT c_QJSValue 
   , mkMethod "newArray" [intT] $ objT c_QJSValue
   , mkMethod "newObject" [] $ objT c_QJSValue
