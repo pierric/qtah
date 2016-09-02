@@ -52,6 +52,9 @@ module Graphics.UI.Qtah.Generator.Interface.Core.Types (
   bs_WindowStates,
   e_WindowType,
   bs_WindowFlags,
+  e_ItemFlag,
+  bs_ItemFlags,  
+  e_ItemDataRole, decorationRole, userRole
   ) where
 
 import Data.Bits ((.|.))
@@ -114,6 +117,8 @@ exports =
   , just $ ExportEnum e_WindowType
   , just $ ExportBitspace bs_WindowFlags
   , test (qtVersion < [5, 0]) $ ExportFn f_escape
+  , just $ ExportEnum e_ItemFlag
+  , just $ ExportBitspace bs_ItemFlags
   ]
 
 qtInclude :: [Include]
@@ -381,3 +386,54 @@ e_WindowModality =
 f_escape =
   addReqIncludes [includeStd "QTextDocument"] $
   makeFn (ident1 "Qt" "escape") Nothing Nonpure [objT c_QString] $ objT c_QString
+
+(e_ItemFlag, bs_ItemFlags) =
+  makeQtEnumBitspace (ident1 "Qt" "ItemFlag") "ItemFlags" qtInclude $
+  let noItemFlags = 0x0
+      itemIsSelectable = 0x01
+      itemIsEditable = 0x02  
+      itemIsDragEnabled = 0x04
+      itemIsDropEnabled = 0x08
+      itemIsUserCheckable = 0x10
+      itemIsEnabled = 0x20
+      itemIsAutoTristate = 0x30
+      itemIsTristate = itemIsAutoTristate
+      itemNeverHasChildren = 0x40
+      itemIsUserTristate = 0x80
+  in [ (noItemFlags, ["no","item","flags"])
+     , (itemIsSelectable, ["item", "is", "selectable"])
+     , (itemIsEditable, ["item", "is", "editable"])
+     , (itemIsDragEnabled, ["item", "is", "drag", "enabled"])
+     , (itemIsDropEnabled, ["item", "is", "drop", "enabled"])
+     , (itemIsUserCheckable, ["item", "is", "userCheckable"])
+     , (itemIsEnabled, ["item", "is", "enabled"])
+     , (itemIsAutoTristate, ["item", "is", "auto", "tristate"])
+     , (itemIsTristate, ["item", "is", "tristate"])
+     , (itemNeverHasChildren, ["item", "never", "hasChildren"])
+     , (itemIsUserTristate, ["item", "is", "user", "tristate"])
+     ]
+
+decorationRole = 1
+userRole = 0x100
+
+e_ItemDataRole =
+  makeQtEnum (ident1 "Qt" "ItemDataRole") qtInclude
+  [ (0, ["display", "role"])
+  , (decorationRole, ["decoration", "role"])
+  , (2, ["edit", "role"])
+  , (3, ["tool", "tip", "role"])
+  , (4, ["status", "tip", "role"])
+  , (5, ["whats", "this", "role"])
+  , (13, ["size", "hint", "role"])
+  , (6, ["font", "role"])
+  , (7, ["text", "alignment", "role"])
+  , (8, ["background", "role"])
+  , (8, ["background", "color", "role"])
+  , (9, ["foreground", "role"])
+  , (9, ["text", "color", "role"])
+  , (10, ["check", "state", "role"])
+  , (14, ["initial", "sort", "order", "role"])
+  , (11, ["accessible", "text", "role"])
+  , (12, ["accessible", "description", "role"])
+  , (userRole, ["user", "role"])
+  ]     

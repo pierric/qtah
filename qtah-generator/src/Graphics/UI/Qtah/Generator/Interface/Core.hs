@@ -39,6 +39,7 @@ import qualified Graphics.UI.Qtah.Generator.Interface.Core.QVector as QVector
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.QVariant as QVariant 
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.QUrl as QUrl
 import qualified Graphics.UI.Qtah.Generator.Interface.Core.Types as Types
+import qualified Graphics.UI.Qtah.Generator.Interface.Core.QModelIndex as QModelIndex
 import Graphics.UI.Qtah.Generator.Types
 
 {-# ANN module "HLint: ignore Use camelCase" #-}
@@ -65,6 +66,7 @@ modules =
     , QTimerEvent.aModule
     , QVariant.aModule
     , QUrl.aModule
+    , QModelIndex.aModule
     , Types.aModule
     ]
   , QList.allModules

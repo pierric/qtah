@@ -61,6 +61,8 @@ import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QTabWidget as QTab
 import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QTextEdit as QTextEdit
 import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QVBoxLayout as QVBoxLayout
 import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QWidget as QWidget
+import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QAbstractItemModel as QAbstractItemModel
+import qualified Graphics.UI.Qtah.Generator.Interface.Widgets.QFileSystemModel as QFileSystemModel
 import Graphics.UI.Qtah.Generator.Types
 
 {-# ANN module "HLint: ignore Use camelCase" #-}
@@ -111,4 +113,6 @@ modules =
   , QTextEdit.aModule
   , QVBoxLayout.aModule
   , QWidget.aModule
+  , QAbstractItemModel.aModule
+  , QFileSystemModel.aModule
   ]
