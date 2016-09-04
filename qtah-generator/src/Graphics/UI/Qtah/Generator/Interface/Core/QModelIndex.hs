@@ -24,7 +24,7 @@ c_QModelIndex =
   [ mkCtor "new" [] ]
   [ mkConstMethod "child"  [intT, intT] (objT c_QModelIndex)
   , mkConstMethod "column" [] intT
-  , mkConstMethod "data" [] (objT c_QVariant)
+  , mkConstMethod'"data" "data_" [] (objT c_QVariant)
   , mkConstMethod'"data" "dataWithRole" [intT] (objT c_QVariant)
   , mkConstMethod "flags" [] (bitspaceT bs_ItemFlags)
   , mkConstMethod "internalId" [] sizeT

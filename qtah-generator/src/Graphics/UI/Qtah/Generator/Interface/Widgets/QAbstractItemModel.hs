@@ -23,7 +23,7 @@ c_QAbstractItemModel =
   [ mkConstMethod "buddy" [refT $ constT $ objT c_QModelIndex] (objT c_QModelIndex)
   , mkConstMethod "flags" [refT $ constT $ objT c_QModelIndex] (bitspaceT bs_ItemFlags)
   , mkConstMethod "columnCount" [] intT
-  , mkConstMethod "data" [refT $ constT $ objT c_QModelIndex] (objT c_QVariant)
+  , mkConstMethod'"data" "data_" [refT $ constT $ objT c_QModelIndex] (objT c_QVariant)
   , mkConstMethod'"data" "dataWithRole" [refT $ constT $ objT c_QModelIndex, intT] (objT c_QVariant)
   , mkConstMethod "hasChildren" [] boolT
   , mkConstMethod "hasIndex" [intT, intT] boolT

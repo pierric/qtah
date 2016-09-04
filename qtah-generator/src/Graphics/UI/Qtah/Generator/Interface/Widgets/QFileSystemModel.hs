@@ -8,6 +8,7 @@ import Foreign.Hoppy.Generator.Spec
 import Graphics.UI.Qtah.Generator.Types
 import Graphics.UI.Qtah.Generator.Interface.Widgets.QAbstractItemModel (c_QAbstractItemModel)
 import Graphics.UI.Qtah.Generator.Interface.Core.Types (decorationRole, userRole)
+import Graphics.UI.Qtah.Generator.Interface.Core.QObject (c_QObject)
 import Graphics.UI.Qtah.Generator.Interface.Core.QString (c_QString)
 import Graphics.UI.Qtah.Generator.Interface.Core.QVariant (c_QVariant)
 import Graphics.UI.Qtah.Generator.Interface.Core.QModelIndex (c_QModelIndex)
@@ -22,7 +23,8 @@ aModule =
 c_QFileSystemModel = 
   addReqIncludes [includeStd "QFileSystemModel"] $
   makeClass (ident "QFileSystemModel") Nothing [c_QAbstractItemModel]
-  []
+  [ mkCtor "new" []
+  , mkCtor "newWithParent" [ptrT $ objT c_QObject]]
   [ mkConstMethod "fileName" [refT $ constT $ objT c_QModelIndex] (objT c_QString)
   , mkConstMethod "filePath" [refT $ constT $ objT c_QModelIndex] (objT c_QString)
   , mkConstMethod "index" [refT $ constT $ objT c_QString] (objT c_QModelIndex)
@@ -42,7 +44,7 @@ c_QFileSystemModel =
   , mkMethod "setResolveSymlinks" [boolT] voidT
   , mkMethod "setRootPath" [refT $ constT $ objT c_QString] (objT c_QModelIndex)
   , mkConstMethod "size" [refT $ constT $ objT c_QModelIndex] int64T
-  , mkConstMethod "type" [refT $ constT $ objT c_QModelIndex] (objT c_QString)
+  , mkConstMethod'"type" "type_" [refT $ constT $ objT c_QModelIndex] (objT c_QString)
   ]
 
 e_Roles =

@@ -75,6 +75,7 @@ executable qtah-generator
     , Graphics.UI.Qtah.Generator.Interface.Core.QVector
     , Graphics.UI.Qtah.Generator.Interface.Core.QVariant
     , Graphics.UI.Qtah.Generator.Interface.Core.QUrl
+    , Graphics.UI.Qtah.Generator.Interface.Core.QModelIndex
     , Graphics.UI.Qtah.Generator.Interface.Core.Types
     , Graphics.UI.Qtah.Generator.Interface.EventListener
     , Graphics.UI.Qtah.Generator.Interface.Gui
@@ -145,6 +146,8 @@ executable qtah-generator
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QTextEdit
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QVBoxLayout
     , Graphics.UI.Qtah.Generator.Interface.Widgets.QWidget
+    , Graphics.UI.Qtah.Generator.Interface.Widgets.QAbstractItemModel
+    , Graphics.UI.Qtah.Generator.Interface.Widgets.QFileSystemModel
     , Graphics.UI.Qtah.Generator.Interface.Qml
     , Graphics.UI.Qtah.Generator.Interface.Qml.QJSValue
     , Graphics.UI.Qtah.Generator.Interface.Qml.QJSEngine
