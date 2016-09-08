@@ -133,6 +133,7 @@ library
     , Graphics.UI.Qtah.Qml.QQmlEngine
     , Graphics.UI.Qtah.Qml.QQmlContext
     , Graphics.UI.Qtah.Qml.QQmlApplicationEngine
+    , Graphics.UI.Qtah.Qml.Unsafe
   other-modules:
       Graphics.UI.Qtah.Generated.Callback
     , Graphics.UI.Qtah.Generated.Core.QChar
