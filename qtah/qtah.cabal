@@ -56,6 +56,7 @@ library
     , Graphics.UI.Qtah.Core.QUrl
     , Graphics.UI.Qtah.Core.QModelIndex
     , Graphics.UI.Qtah.Core.Types
+    , Graphics.UI.Qtah.Core.Unsafe
     , Graphics.UI.Qtah.Event
     -- TODO This should not be exposed directly, but there is no nice interface
     -- to it right now.
